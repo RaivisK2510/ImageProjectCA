@@ -10,8 +10,8 @@ using namespace std;
 #ifndef IMAGEPROJECT_IMAGE_H
 #define IMAGEPROJECT_IMAGE_H
 struct RGB {
-    char r, g, b;
-    RGB(char r, char g, char b):r(r), g(g), b(b){}
+    unsigned char r, g, b;
+    RGB(unsigned char r, unsigned char g, unsigned char b):r(r), g(g), b(b){}
     RGB():r(0),g(0),b(0){}
 };
 
@@ -44,7 +44,8 @@ public:
     void advancedFeature2();
     void advancedFeature3();
     void reload();
-    void filterRed();
+    void filterRed(
+        );
     void filterGreen();
     void filterBlue();
     void greyScale();

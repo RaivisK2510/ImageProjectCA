@@ -170,24 +170,64 @@ void MyImage::save()
 void MyImage::filterRed()
 {
    cout << "Filter Red" << endl;
+    for (int i=0;i < this->pixels.size();++i) {
+        this->pixels[i].g = 0;
+        this->pixels[i].b = 0;
+    }
 
 }
 void MyImage::filterGreen() {
     cout << "Filter Green" << endl;
+    for (int i=0;i < this->pixels.size();++i) {
+        this->pixels[i].r = 0;
+        this->pixels[i].b = 0;
+    }
 }
 void MyImage::filterBlue() {
     cout << "Filter Blue" << endl;
+    for (int i=0;i < this->pixels.size();++i) {
+        this->pixels[i].g = 0;
+        this->pixels[i].r = 0;
+    }
 }
 
 void MyImage::greyScale() {
     cout << "Filter Greyscale" << endl;
+    for (int i = 0; i < this->pixels.size(); ++i) {
+        float avg = (this->pixels[i].r + this->pixels[i].g + this->pixels[i].b) / 3;
+        this->pixels[i].r = avg;
+        this->pixels[i].g = avg;
+        this->pixels[i].b = avg;
+    }
 }
 
 void MyImage::flipHorizontal() {
     cout << "Flip Horizontal" << endl;
+    int width = this->size.x;
+    int height = this->size.y;
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width/2; ++j) {
+            int leftIndex = (i * width ) + j;
+            int rightIndex = (i * width ) + (width - j - 1);
+            RGB temp = this->pixels[leftIndex];
+            this->pixels[leftIndex] = this->pixels[rightIndex];
+            this->pixels[rightIndex] = temp;
+        }
+    }
 }
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
+    int width = this->size.x;
+    int height = this->size.y;
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height/2; ++j) {
+            int topIndex = (j*width)+i;
+            int bottomIndex = ((height - 1 - j) * width) + i;
+            RGB temp = this->pixels[topIndex];
+            this->pixels[topIndex] = this->pixels[bottomIndex];
+            this->pixels[bottomIndex] = temp;
+        }
+    }
 }
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
