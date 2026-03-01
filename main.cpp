@@ -38,9 +38,9 @@ int main()
     buttons.push_back(new Button(font, {660, 380}, {120, 30}, "Advanced Feature 3", [&images, &selectedImage](){images[selectedImage]->advancedFeature3();}));
     buttons.push_back(new Button(font, {660, 420}, {120, 30}, "Save", [&images, &selectedImage](){images[selectedImage]->save();}));
     buttons.push_back(new Button(font, {660, 420}, {120, 30}, "Save", [&images, &selectedImage](){images[selectedImage]->save();}));
+    buttons.push_back(new Button(font, {660, 460}, {120, 30}, "Rotate 90", [&images, &selectedImage](){images[selectedImage]->rotate90();}));
 
 
-    buttons.push_back(new Button(font, {190, imgH+30}, {120, 30}, "<", [&images, &selectedImage](){if (selectedImage > 0) selectedImage--;}));
     buttons.push_back(new Button(font, {330, imgH+30}, {120, 30}, ">", [&images, &selectedImage]() {
         if (selectedImage < images.size()-1) selectedImage++;
     }));

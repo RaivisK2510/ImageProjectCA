@@ -229,6 +229,38 @@ void MyImage::flipVertical() {
         }
     }
 }
+void MyImage::rotate90()
+{
+    cout << "Rotate 90" << endl;
+
+    int width  = static_cast<int>(this->size.x);
+    int height = static_cast<int>(this->size.y);
+    if (width <= 0 || height <= 0) return;
+
+    vector<RGB> rotated;
+    rotated.resize(static_cast<size_t>(width) * static_cast<size_t>(height));
+
+    // 90 degrees clockwise:
+    // newW = height, newH = width
+    // new(x', y') = old(x, y) where:
+    // x' = height - 1 - y
+    // y' = x
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            int newX = height - 1 - y;
+            int newY = x;
+
+            int oldIndex = y * width + x;
+            int newIndex = newY * height + newX; // note: new width = height
+
+            rotated[newIndex] = this->pixels[oldIndex];
+        }
+    }
+
+    this->pixels = std::move(rotated);
+    this->size = { static_cast<float>(height), static_cast<float>(width) };
+}
+
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
 }
@@ -238,4 +270,6 @@ void MyImage::advancedFeature2() {
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;
 }
+
+
 

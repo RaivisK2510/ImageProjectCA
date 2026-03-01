@@ -49,6 +49,7 @@ public:
     void filterGreen();
     void filterBlue();
     void greyScale();
+    void rotate90();
 };
 
 
