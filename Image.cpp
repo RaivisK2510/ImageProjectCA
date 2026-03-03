@@ -229,7 +229,7 @@ void MyImage::flipVertical() {
         }
     }
 }
-void MyImage::rotate90()
+void MyImage::advancedFeature1()
 {
     cout << "Rotate 90" << endl;
 
@@ -261,11 +261,17 @@ void MyImage::rotate90()
     this->size = { static_cast<float>(height), static_cast<float>(width) };
 }
 
-void MyImage::advancedFeature1() {
-    cout << "Advanced Feature 1" << endl;
-}
 void MyImage::advancedFeature2() {
-    cout << "Advanced FEature 2" << endl;
+    cout << "Advanced Feature 2: Mirror Image" << endl;
+    int width = this->size.x;
+    int height = this->size.y;
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width/2; ++j) {
+            int leftIndex = (i * width ) + j;
+            int rightIndex = (i * width ) + (width - j - 1);
+            this->pixels[leftIndex] = this->pixels[rightIndex];
+        }
+    }
 }
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;
