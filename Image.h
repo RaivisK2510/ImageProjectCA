@@ -15,8 +15,7 @@ struct RGB {
     RGB():r(0),g(0),b(0){}
 };
 
-class MyImage : public sf::Drawable
-{
+class MyImage : public sf::Drawable {
     vector<RGB> pixels;
     sf::Vector2f size;
     sf::Vector2f targetSize;;
@@ -40,17 +39,18 @@ public:
     // functions to implement
     void flipHorizontal();
     void flipVertical();
-    void advancedFeature1();
-    void advancedFeature2();
-    void advancedFeature3();
-    void reload();
-    void filterRed(
-        );
+
+    void filterRed();
     void filterGreen();
     void filterBlue();
     void greyScale();
+
+    void advancedFeature1();
+    void advancedFeature2();
+    void advancedFeature3();
+
+    void reload();
     void rotate90();
 };
-
 
 #endif //IMAGEPROJECT_IMAGE_H
